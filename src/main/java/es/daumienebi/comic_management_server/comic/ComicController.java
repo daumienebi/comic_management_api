@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path="/comics")
 public class ComicController {
 	
+	@Autowired
 	ComicService comicService;
 	
 	@GetMapping()

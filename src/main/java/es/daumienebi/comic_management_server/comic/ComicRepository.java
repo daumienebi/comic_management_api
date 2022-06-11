@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ComicRepository extends JpaRepository<Comic, Long> {
+public interface ComicRepository extends JpaRepository<Comic, Long>{
 
-	//To be created automatically
-	public ArrayList<Comic> findByNameOrCollection();
+	public ArrayList<Comic> findByName(String name);
 }
