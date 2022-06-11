@@ -3,6 +3,8 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "comic")
 public class Comic {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
