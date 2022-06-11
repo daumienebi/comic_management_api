@@ -1,5 +1,7 @@
 package es.daumienebi.comic_management_server.comic;
 
-public class ComicRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ComicRepository extends JpaRepository<Comic, Long> {
 
 }
