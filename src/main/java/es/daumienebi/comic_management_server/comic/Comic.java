@@ -1,9 +1,13 @@
 package es.daumienebi.comic_management_server.comic;
+import java.util.Date;
 import java.time.LocalDate;
 
 import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 @Table(name = "comic")
@@ -12,6 +16,9 @@ public class Comic {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	//@DateTimeFormat(pattern = "DD/MM/YY")
+	//@JsonFormat(pattern = "yyyy-MM-dd",shape = Shape.STRING)
 	private LocalDate adquisition_date;
 	private String image;
 	private int collection_id;

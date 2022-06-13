@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ComicRepository extends JpaRepository<Comic, Long>{
 
 	public ArrayList<Comic> findByName(String name);
+	
+	//public ArrayList<Comic> findByCollection(String collection);
 }
