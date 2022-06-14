@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.daumienebi.comic_management_server.comic.Comic;
+
 @Service
 public class CollectionService {
 
@@ -36,4 +38,10 @@ public class CollectionService {
 			return false;
 		}
 	}
+	
+	/*
+	public ArrayList<Comic> findComics(){
+		return collectionRepository.findComics();
+	}
+	*/
 }
