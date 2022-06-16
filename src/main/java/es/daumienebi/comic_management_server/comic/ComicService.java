@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class ComicService {
@@ -38,6 +41,9 @@ public class ComicService {
 		return comicRepository.findByName(name);
 	}
 	
+	public Comic updateComic(Comic comic) {
+		return comicRepository.save(comic);
+	}
 	/*
 	public ArrayList<Comic> findByNameOrCollection(String nameOrCollection){
 		return comicRepository.findByCollection(nameOrCollection);

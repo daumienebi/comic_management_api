@@ -19,7 +19,7 @@ public class Comic {
 	
 	//@DateTimeFormat(pattern = "DD/MM/YY")
 	//@JsonFormat(pattern = "yyyy-MM-dd",shape = Shape.STRING)
-	private LocalDate adquisition_date;
+	private Date adquisition_date;
 	private String image;
 	private int collection_id;
 	private String state;
@@ -37,10 +37,10 @@ public class Comic {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public LocalDate getAdquisition_date() {
+	public Date getAdquisition_date() {
 		return adquisition_date;
 	}
-	public void setAdquisition_date(LocalDate adquisition_date) {
+	public void setAdquisition_date(Date adquisition_date) {
 		this.adquisition_date = adquisition_date;
 	}
 	public String getImage() {

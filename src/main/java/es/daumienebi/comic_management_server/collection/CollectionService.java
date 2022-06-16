@@ -39,6 +39,10 @@ public class CollectionService {
 		}
 	}
 	
+	public Collection updateCollection(Collection collection) {
+		return collectionRepository.save(collection);
+	}
+	
 	/*
 	public ArrayList<Comic> findComics(){
 		return collectionRepository.findComics();

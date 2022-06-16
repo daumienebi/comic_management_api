@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +36,15 @@ public class CollectionController {
 		return collectionService.findCollectionById(id);
 	}
 	
-	@DeleteMapping(path="/{id}")
+	@RequestMapping(path="/{id}",method = RequestMethod.DELETE)
 	public boolean deleteCollectionById(@PathVariable("id") Long id){
 		return collectionService.deleteCollectionById(id);
+	}
+	
+	@RequestMapping(path = "/{id}",method = RequestMethod.PUT)
+	public Collection updateComic(@RequestBody Collection newCollection, @PathVariable Long id) {
+		
+		return collectionService.updateCollection(newCollection);
 	}
 	/*
 	@GetMapping()
@@ -46,9 +54,11 @@ public class CollectionController {
 	*/
 	
 	//@RequestMapping(name = "/collections", method = RequestMethod.POST)
-	@PostMapping(name = "collections",consumes = MediaType.APPLICATION_JSON_VALUE, 
-	        produces = MediaType.APPLICATION_JSON_VALUE)
-	public Collection saveCollection(@RequestBody Collection collection) {
-		return collectionService.saveCollection(collection);
+	//@PostMapping(name = "/collections",consumes = MediaType.APPLICATION_JSON_VALUE, 
+	        //produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(name = "/collections")
+	public ResponseEntity<Collection> saveCollection(@RequestBody Collection collection) {
+		Collection collectionSaved = collectionService.saveCollection(collection);
+		return new ResponseEntity<Collection>(collectionSaved,HttpStatus.CREATED);
 	}
 }
